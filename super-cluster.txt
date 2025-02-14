@@ -1,2 +1,0 @@
-ssh lbouffa6@login.talapas.uoregon.edu
-SR71-Blackbird

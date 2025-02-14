@@ -1,0 +1,624 @@
+State ga:
+  system: 0.2192
+  phase: 0.2094
+  technology: 0.1732
+  high: 0.1590
+  cell: 0.1399
+  ha: 0.1232
+  based: 0.1207
+  project: 0.1205
+  patient: 0.1164
+  develop: 0.1129
+
+State tx:
+  system: 0.2716
+  phase: 0.2402
+  high: 0.1882
+  technology: 0.1739
+  lynntech: 0.1309
+  use: 0.1253
+  application: 0.1250
+  cell: 0.1219
+  based: 0.1219
+  develop: 0.1177
+
+State md:
+  system: 0.3315
+  phase: 0.2429
+  technology: 0.1604
+  data: 0.1595
+  based: 0.1398
+  high: 0.1363
+  develop: 0.1322
+  ha: 0.1246
+  application: 0.1190
+  use: 0.1106
+
+State fl:
+  system: 0.3599
+  phase: 0.2347
+  technology: 0.1672
+  data: 0.1518
+  high: 0.1358
+  based: 0.1324
+  ha: 0.1294
+  design: 0.1227
+  develop: 0.1142
+  cost: 0.1065
+
+State co:
+  system: 0.3243
+  phase: 0.2475
+  technology: 0.1806
+  high: 0.1684
+  design: 0.1372
+  cost: 0.1340
+  develop: 0.1222
+  application: 0.1182
+  use: 0.1169
+  data: 0.1136
+
+State ct:
+  system: 0.2670
+  phase: 0.2313
+  high: 0.2092
+  application: 0.1580
+  technology: 0.1278
+  power: 0.1185
+  based: 0.1144
+  design: 0.1120
+  ha: 0.1114
+  cell: 0.1102
+
+State ca:
+  system: 0.3292
+  phase: 0.2567
+  high: 0.1883
+  technology: 0.1701
+  based: 0.1371
+  data: 0.1278
+  develop: 0.1268
+  project: 0.1253
+  design: 0.1245
+  application: 0.1245
+
+State nc:
+  phase: 0.2070
+  system: 0.1829
+  high: 0.1577
+  project: 0.1447
+  cell: 0.1325
+  technology: 0.1282
+  develop: 0.1281
+  based: 0.1252
+  patient: 0.1246
+  study: 0.1168
+
+State mi:
+  system: 0.3032
+  phase: 0.2256
+  technology: 0.1653
+  high: 0.1459
+  data: 0.1356
+  project: 0.1356
+  design: 0.1311
+  application: 0.1215
+  develop: 0.1208
+  development: 0.1174
+
+State pa:
+  system: 0.3031
+  phase: 0.2446
+  high: 0.1825
+  technology: 0.1523
+  design: 0.1395
+  development: 0.1279
+  material: 0.1206
+  ha: 0.1188
+  project: 0.1175
+  develop: 0.1148
+
+State ky:
+  system: 0.1936
+  phase: 0.1888
+  technology: 0.1712
+  project: 0.1207
+  device: 0.1104
+  ha: 0.1072
+  mci: 0.1070
+  high: 0.1043
+  patient: 0.1020
+  stimulation: 0.1011
+
+State mt:
+  system: 0.2638
+  phase: 0.1840
+  project: 0.1514
+  technology: 0.1508
+  high: 0.1491
+  bridger: 0.1422
+  research: 0.1243
+  montana: 0.1202
+  application: 0.1175
+  design: 0.1153
+
+State in:
+  system: 0.3056
+  phase: 0.2228
+  technology: 0.1612
+  high: 0.1586
+  project: 0.1586
+  glucagon: 0.1490
+  research: 0.1198
+  nbsp: 0.1156
+  cost: 0.1097
+  ha: 0.1097
+
+State oh:
+  system: 0.2795
+  phase: 0.2388
+  high: 0.2024
+  technology: 0.1783
+  application: 0.1429
+  design: 0.1396
+  material: 0.1358
+  cost: 0.1263
+  process: 0.1149
+  develop: 0.1122
+
+State al:
+  system: 0.2984
+  phase: 0.2671
+  model: 0.1837
+  high: 0.1520
+  design: 0.1497
+  cfdrc: 0.1423
+  technology: 0.1415
+  based: 0.1415
+  data: 0.1336
+  develop: 0.1190
+
+State ny:
+  system: 0.3118
+  phase: 0.2132
+  technology: 0.1612
+  high: 0.1593
+  data: 0.1541
+  application: 0.1302
+  project: 0.1288
+  development: 0.1241
+  based: 0.1226
+  ha: 0.1183
+
+State az:
+  system: 0.2774
+  phase: 0.2449
+  high: 0.2311
+  technology: 0.1368
+  based: 0.1356
+  design: 0.1318
+  application: 0.1212
+  material: 0.1200
+  power: 0.1184
+  fiber: 0.1140
+
+State va:
+  system: 0.3972
+  phase: 0.2100
+  data: 0.1749
+  technology: 0.1520
+  high: 0.1484
+  sensor: 0.1320
+  based: 0.1263
+  luna: 0.1237
+  design: 0.1143
+  develop: 0.1121
+
+State ma:
+  system: 0.3057
+  phase: 0.2743
+  high: 0.2131
+  technology: 0.1611
+  develop: 0.1316
+  based: 0.1287
+  application: 0.1272
+  ha: 0.1131
+  design: 0.1119
+  ii: 0.1118
+
+State nj:
+  phase: 0.2826
+  system: 0.2280
+  high: 0.2075
+  technology: 0.1943
+  based: 0.1397
+  application: 0.1380
+  design: 0.1251
+  develop: 0.1216
+  ha: 0.1193
+  device: 0.1087
+
+State mo:
+  phase: 0.2049
+  technology: 0.1648
+  system: 0.1617
+  high: 0.1491
+  research: 0.1319
+  develop: 0.1287
+  project: 0.1256
+  ha: 0.1109
+  cell: 0.1076
+  development: 0.1067
+
+State or:
+  phase: 0.2715
+  system: 0.2154
+  program: 0.1781
+  project: 0.1574
+  high: 0.1425
+  technology: 0.1309
+  based: 0.1285
+  develop: 0.1085
+  new: 0.1065
+  ii: 0.1024
+
+State sc:
+  phase: 0.1997
+  system: 0.1791
+  high: 0.1631
+  cell: 0.1459
+  technology: 0.1331
+  project: 0.1260
+  study: 0.1220
+  development: 0.1195
+  new: 0.1141
+  plact: 0.1084
+
+State nv:
+  system: 0.3028
+  phase: 0.2444
+  technology: 0.1528
+  ii: 0.1167
+  data: 0.1132
+  development: 0.1132
+  high: 0.1104
+  sensor: 0.1088
+  project: 0.1076
+  design: 0.1056
+
+State me:
+  elderberry: 0.3666
+  phase: 0.2335
+  system: 0.2069
+  project: 0.1235
+  material: 0.1228
+  technology: 0.1064
+  design: 0.1064
+  maine: 0.1059
+  used: 0.1035
+  ii: 0.1035
+
+State tn:
+  phase: 0.2423
+  system: 0.2382
+  high: 0.1434
+  technology: 0.1394
+  design: 0.1177
+  based: 0.1164
+  project: 0.1158
+  cost: 0.1056
+  ii: 0.1015
+  research: 0.1007
+
+State il:
+  phase: 0.2470
+  high: 0.2160
+  system: 0.1921
+  material: 0.1630
+  technology: 0.1465
+  project: 0.1397
+  design: 0.1256
+  application: 0.1251
+  research: 0.1184
+  cost: 0.1125
+
+State nm:
+  system: 0.3261
+  phase: 0.2326
+  high: 0.1927
+  technology: 0.1704
+  data: 0.1342
+  application: 0.1263
+  sensor: 0.1202
+  laser: 0.1153
+  power: 0.1151
+  based: 0.1136
+
+State wa:
+  system: 0.2597
+  phase: 0.2571
+  high: 0.1842
+  technology: 0.1600
+  design: 0.1328
+  develop: 0.1315
+  cost: 0.1307
+  project: 0.1304
+  ha: 0.1227
+  research: 0.1163
+
+State nh:
+  system: 0.3464
+  phase: 0.2955
+  creare: 0.2455
+  high: 0.1581
+  design: 0.1568
+  technology: 0.1445
+  performance: 0.1321
+  develop: 0.1313
+  sensor: 0.1268
+  ii: 0.1207
+
+State ia:
+  phase: 0.1822
+  aki: 0.1554
+  cell: 0.1270
+  project: 0.1245
+  hoba: 0.1236
+  patient: 0.1221
+  based: 0.1133
+  ngal: 0.1118
+  atrophy: 0.1049
+  terfenol: 0.1046
+
+State ks:
+  system: 0.2666
+  phase: 0.2039
+  high: 0.1667
+  technology: 0.1322
+  cost: 0.1143
+  ha: 0.1143
+  material: 0.1140
+  device: 0.1098
+  design: 0.1098
+  proposed: 0.1073
+
+State wi:
+  system: 0.2284
+  phase: 0.1891
+  cell: 0.1518
+  project: 0.1489
+  technology: 0.1489
+  protein: 0.1402
+  new: 0.1388
+  wound: 0.1263
+  use: 0.1224
+  high: 0.1182
+
+State mn:
+  system: 0.2324
+  phase: 0.2084
+  device: 0.2004
+  project: 0.1692
+  technology: 0.1525
+  high: 0.1465
+  patient: 0.1237
+  application: 0.1230
+  develop: 0.1229
+  use: 0.1198
+
+State ne:
+  cataract: 0.2470
+  muc: 0.2463
+  system: 0.2036
+  kinostat: 0.1995
+  phase: 0.1781
+  sugar: 0.1245
+  irrigation: 0.1103
+  fnas: 0.1088
+  gene: 0.1077
+  dog: 0.1042
+
+State la:
+  system: 0.2343
+  technology: 0.1812
+  data: 0.1591
+  flocculation: 0.1470
+  project: 0.1432
+  phase: 0.1406
+  cost: 0.1249
+  high: 0.1241
+  design: 0.1218
+  mgc: 0.1202
+
+State de:
+  system: 0.2218
+  phase: 0.2181
+  technology: 0.1618
+  process: 0.1538
+  high: 0.1482
+  cost: 0.1418
+  material: 0.1416
+  membrane: 0.1394
+  oea: 0.1322
+  application: 0.1291
+
+State ut:
+  system: 0.2331
+  phase: 0.2087
+  technology: 0.1790
+  data: 0.1619
+  high: 0.1521
+  project: 0.1424
+  ha: 0.1310
+  proposed: 0.1130
+  develop: 0.1112
+  application: 0.1109
+
+State ok:
+  system: 0.2036
+  psgl: 0.1724
+  phase: 0.1673
+  angiostatin: 0.1561
+  clt: 0.1293
+  crohn: 0.1281
+  dme: 0.1228
+  study: 0.1189
+  disease: 0.1152
+  technology: 0.1068
+
+State dc:
+  nitrc: 0.2308
+  system: 0.2286
+  data: 0.2038
+  phase: 0.1619
+  based: 0.1270
+  technology: 0.1238
+  develop: 0.1197
+  use: 0.1016
+  development: 0.1003
+  information: 0.0956
+
+State vt:
+  system: 0.2258
+  quantaspec: 0.2213
+  tom: 0.1566
+  pe: 0.1448
+  phase: 0.1364
+  develop: 0.1294
+  project: 0.1246
+  data: 0.1246
+  technology: 0.1223
+  test: 0.1129
+
+State wv:
+  touchstone: 0.2315
+  material: 0.1911
+  system: 0.1564
+  technology: 0.1518
+  cfoam: 0.1377
+  high: 0.1359
+  phase: 0.1334
+  tmc: 0.1319
+  tygart: 0.1180
+  application: 0.1150
+
+State ar:
+  apei: 0.2598
+  catfish: 0.2431
+  power: 0.2338
+  high: 0.2109
+  system: 0.1912
+  phase: 0.1732
+  temperature: 0.1357
+  project: 0.1330
+  technology: 0.1327
+  hdrb: 0.1155
+
+State hi:
+  oceanit: 0.3310
+  system: 0.2211
+  chikv: 0.1608
+  high: 0.1307
+  technology: 0.1282
+  aeration: 0.1204
+  proppant: 0.1198
+  oyster: 0.1198
+  phase: 0.1194
+  aquaculture: 0.1122
+
+State ri:
+  phase: 0.2161
+  system: 0.2032
+  cost: 0.1595
+  high: 0.1389
+  pain: 0.1274
+  technology: 0.1235
+  iaip: 0.1210
+  ahn: 0.0990
+  ha: 0.0952
+  develop: 0.0944
+
+State wy:
+  wool: 0.2950
+  adjoint: 0.2082
+  system: 0.1985
+  design: 0.1452
+  curtailment: 0.1388
+  phase: 0.1356
+  neuromorphic: 0.1343
+  material: 0.1307
+  coal: 0.1215
+  cost: 0.1162
+
+State sd:
+  coating: 0.2368
+  technology: 0.1783
+  material: 0.1620
+  process: 0.1438
+  spray: 0.1313
+  development: 0.1287
+  synthetik: 0.1271
+  mfem: 0.1271
+  phase: 0.1263
+  ciscc: 0.1150
+
+State pr:
+  cervical: 0.2451
+  protein: 0.2446
+  babesia: 0.2192
+  cancer: 0.1883
+  sporozoite: 0.1631
+  cattle: 0.1557
+  woman: 0.1550
+  colposcopy: 0.1359
+  mabs: 0.1346
+  geolocation: 0.1320
+
+State nd:
+  ree: 0.2354
+  hearing: 0.2291
+  germline: 0.2151
+  phase: 0.1803
+  technology: 0.1512
+  based: 0.1512
+  fluorescence: 0.1502
+  research: 0.1482
+  power: 0.1363
+  saltation: 0.1244
+
+State id:
+  system: 0.2070
+  sentient: 0.2004
+  technology: 0.1863
+  cost: 0.1398
+  based: 0.1346
+  pipa: 0.1328
+  phase: 0.1191
+  application: 0.1139
+  digitalclone: 0.1107
+  bsc: 0.1107
+
+State ms:
+  phase: 0.2946
+  kenaf: 0.2731
+  tirf: 0.2607
+  netstor: 0.1955
+  parmaxr: 0.1738
+  system: 0.1524
+  srps: 0.1521
+  technology: 0.1422
+  ii: 0.1270
+  cancer: 0.1241
+
+State ak:
+  mfa: 0.2655
+  ant: 0.2074
+  nonconforming: 0.1956
+  anc: 0.1639
+  substandard: 0.1537
+  alaska: 0.1383
+  volcanic: 0.1383
+  technology: 0.1372
+  system: 0.1372
+  antenna: 0.1243
+

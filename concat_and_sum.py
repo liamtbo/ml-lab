@@ -1,46 +1,86 @@
-from tqdm import tqdm
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.pipeline import make_pipeline
+import numpy as np
 
+def concat(input):
 
-def main():
-    cleaned_data = "/home/frankwoods/Desktop/lab/data/test_data.csv"
-    concat_by_state = "/home/frankwoods/Desktop/lab/data/concat_by_state.csv"
-
-    cleaned_file = open(cleaned_data, "r")
-    # concat_by_state_file = open(concat_by_state, "w")
-    # concat_everything_file = open(concat_everything, "w")
-
+    # open up test_data
+    cleaned_file = open(input, "r")
+    # example of d_concat_by_state when done:
+      # d_concat_by_state["or"] = "all abstract associate with oregon combined here"
+      # d_concat_by_state["ca"] = "all abstracts assocaited with califronai combined here"
     d_concat_by_state = {}
+
+    # loop over cleaned test data file
+    # format of each line is like: 2024,or,abstract...
     for line in cleaned_file:
-        year = line[:4]
-        if not year.isnumeric(): continue # skip csv titles
-        state = line[5:7]
-        abstract = line[8:].strip()
+        # Skip CSV titles
+        if line == "Award Year,State,Abstract\n": continue 
+        
+        state = line[5:7]  # Extract state abbreviation
+        abstract = line[8:].strip()  # Extract abstract text
+        # for each state, concatenate all abstract corresponding to said state
         if state in d_concat_by_state:
             d_concat_by_state[state] += " " + abstract
         else:
             d_concat_by_state[state] = abstract
-
-    # creatin parallel arrays of [state, all that states abstracts concated]
-    abstracts_total_concat = []
+    cleaned_file.close()
+    
+    # Creating parallel arrays of [state, concatenated abstracts]
+    state_order = []
+    abstracts = []
     for state, abstract in d_concat_by_state.items():
-        abstracts_total_concat.append(abstract)
+        state_order.append(state)
+        abstracts.append(abstract)
+    
+    return state_order, abstracts
 
-    # create object
-    tfidf = TfidfVectorizer()
-    # get tf-df values
-    result = tfidf.fit_transform(abstracts_total_concat)
+def get_predictions(input, model, state_order):
+    # loop through validation data file
+    # make two parallel arrays: validation_abstracts[i] holds the abstract corresponding to state in ground_truth[i]
+    validation_abstracts = []
+    ground_truth = []
+    with open(input, "r") as file:
+        for line in file:
+            if line == "Award Year,State,Abstract\n": continue  # Skip header line
+            
+            state = line[5:7]  # Extract state abbreviation
+            # get states corrsponding index we set in state_order
+            ground_truth.append(state_order.index(state)) 
+            
+            abstract = line[8:].strip()  # Extract abstract text
+            validation_abstracts.append(abstract)
+    
+    predictions = model.predict(validation_abstracts)
+    return predictions, ground_truth
 
-    """
-    rows -> documents
-    cols -> word indexes
-    (row, col) -> tf-idf value of word in document
-    """
-    matrix = result.toarray()
-    for document_i in range(len(matrix)):
-        top_words = []
-        top_words_index = []
-        print()
-        
+def main():
 
+    # Load and process training data
+    cleaned_data = "./data/test_data.csv"
+    # returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
+    state_order, abstracts = concat(cleaned_data)
+    
+    # Create the pipeline with a TfidfVectorizer and Naive Bayes model
+    model = make_pipeline(TfidfVectorizer(), MultinomialNB())
+    
+    # Fit the model on the training data
+    train_texts = abstracts
+    train_labels = [i for i in range(len(state_order))]  # Assign a unique index to each state
+    model.fit(train_texts, train_labels)
+    
+    # Load and process validation data
+    validation_data = "./data/validation_data.csv"
+    # loop through validation data, return predictions and ground truth values
+    predictions, ground_truth = get_predictions(validation_data, model, state_order)
+    
+    # Compute prediction accuracy
+    correct = sum(p == g for p, g in zip(predictions, ground_truth))
+    incorrect = len(predictions) - correct
+    prediction_accuracy = correct / (correct + incorrect)
+    
+    print(f"Prediction accuracy: {prediction_accuracy:.2%}")
+
+# Run the main function
 main()
