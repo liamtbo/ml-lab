@@ -56,7 +56,6 @@ def get_predictions(input, model, state_order):
     return predictions, ground_truth
 
 def main():
-
     # Load and process training data
     cleaned_data = "./data/test_data.csv"
     # returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
@@ -67,7 +66,9 @@ def main():
     
     # Fit the model on the training data
     train_texts = abstracts
-    train_labels = [i for i in range(len(state_order))]  # Assign a unique index to each state
+    # Assign a unique index to each state, this is used as the predicted classes for the model
+    # ex: (1: or, 2: ca, 3: wa, ....)
+    train_labels = [i for i in range(len(state_order))]
     model.fit(train_texts, train_labels)
     
     # Load and process validation data

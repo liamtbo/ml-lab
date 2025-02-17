@@ -90,10 +90,10 @@ def lemmatization(line):
 
 
 def main():
-    input_file = "/home/frankwoods/Desktop/lab/data/year_state_abs.csv"
-    train_data = "/home/frankwoods/Desktop/lab/data/train_data.csv"
-    validation_data = "/home/frankwoods/Desktop/lab/data/validation_data.csv"
-    test_data = "/home/frankwoods/Desktop/lab/data/test_data.csv"
+    input_file = "./data/year_state_abs.csv"
+    train_data = "./data/train_data.csv"
+    validation_data = "./data/validation_data.csv"
+    test_data = "./data/test_data.csv"
 
     train_file = open(train_data, "w")
     valid_file = open(validation_data, "w")
