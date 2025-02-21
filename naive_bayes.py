@@ -1,10 +1,9 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.pipeline import make_pipeline
-import numpy as np
 
+
+# returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
 def concat(input):
-
     # open up test_data
     cleaned_file = open(input, "r")
     # example of d_concat_by_state when done:
@@ -30,13 +29,15 @@ def concat(input):
     # Creating parallel arrays of [state, concatenated abstracts]
     state_order = []
     abstracts = []
+    documents = open("./data/documents.csv", "w")
     for state, abstract in d_concat_by_state.items():
+        documents.write(f"{state},{abstract}\n")
         state_order.append(state)
         abstracts.append(abstract)
-    
+    documents.close()
     return state_order, abstracts
 
-def get_predictions(input, model, state_order):
+def get_predictions(input, vectorizer, naive_bayes, state_order):
     # loop through validation data file
     # make two parallel arrays: validation_abstracts[i] holds the abstract corresponding to state in ground_truth[i]
     validation_abstracts = []
@@ -51,30 +52,34 @@ def get_predictions(input, model, state_order):
             
             abstract = line[8:].strip()  # Extract abstract text
             validation_abstracts.append(abstract)
-    
-    predictions = model.predict(validation_abstracts)
+
+    # gets tf-idf scores for every test data, idf scores are from trained set
+    validation_features = vectorizer.transform(validation_abstracts)
+    predictions = naive_bayes.predict(validation_features)
     return predictions, ground_truth
 
 def main():
     # Load and process training data
-    cleaned_data = "./data/test_data.csv"
+    cleaned_data = "./data/train_data.csv"
     # returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
     state_order, abstracts = concat(cleaned_data)
-    
-    # Create the pipeline with a TfidfVectorizer and Naive Bayes model
-    model = make_pipeline(TfidfVectorizer(), MultinomialNB())
-    
-    # Fit the model on the training data
     train_texts = abstracts
     # Assign a unique index to each state, this is used as the predicted classes for the model
     # ex: (1: or, 2: ca, 3: wa, ....)
     train_labels = [i for i in range(len(state_order))]
-    model.fit(train_texts, train_labels)
+    
+    vectorizer = TfidfVectorizer()
+    # outputs tf-idf scores
+    # vectorizer also stores training set idf to be applied later in predicting test-data
+    train_texts = vectorizer.fit_transform(train_texts)
+
+    naive_bayes = MultinomialNB()
+    naive_bayes.fit(train_texts, train_labels)
     
     # Load and process validation data
     validation_data = "./data/validation_data.csv"
     # loop through validation data, return predictions and ground truth values
-    predictions, ground_truth = get_predictions(validation_data, model, state_order)
+    predictions, ground_truth = get_predictions(validation_data, vectorizer, naive_bayes, state_order)
     
     # Compute prediction accuracy
     correct = sum(p == g for p, g in zip(predictions, ground_truth))
@@ -83,5 +88,4 @@ def main():
     
     print(f"Prediction accuracy: {prediction_accuracy:.2%}")
 
-# Run the main function
 main()

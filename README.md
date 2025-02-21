@@ -1,4 +1,8 @@
 Running the model
+    create venv and install dependencies
+        python3 -m venv sklearn-env
+        source sklearn-env/bin/activate  # activate
+        pip3 install -U scikit-learn
     start up python virtual environment
         source myenv/bin/activate 
     run model code
@@ -10,8 +14,8 @@ concat_and_sum.py
 parse_clean.py
     this file is for cleaning up data which has already been done
 
-Multinomail naive bayes
-    Naive Bayes doesn't distinguish between raw word frequencies or TF-IDF scores—it simply treats whatever is provided as features (typically word counts or weights).
+Multinomail naive bayes explanation
+    Naive Bayes doesn't distinguish between raw word frequencies or TF-IDF scores—it simply treats whatever is provided as features.
     TF-IDF scores work well in this context because they give more weight to rarer or more unique terms, making those words more informative for classification.
 
     running testing data
