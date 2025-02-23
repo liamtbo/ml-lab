@@ -1,42 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-
-# returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
-def concat(input):
-    # open up test_data
-    cleaned_file = open(input, "r")
-    # example of d_concat_by_state when done:
-      # d_concat_by_state["or"] = "all abstract associate with oregon combined here"
-      # d_concat_by_state["ca"] = "all abstracts assocaited with califronai combined here"
-    d_concat_by_state = {}
-
-    # loop over cleaned test data file
-    # format of each line is like: 2024,or,abstract...
-    for line in cleaned_file:
-        # Skip CSV titles
-        if line == "Award Year,State,Abstract\n": continue 
-        
-        state = line[5:7]  # Extract state abbreviation
-        abstract = line[8:].strip()  # Extract abstract text
-        # for each state, concatenate all abstract corresponding to said state
-        if state in d_concat_by_state:
-            d_concat_by_state[state] += " " + abstract
-        else:
-            d_concat_by_state[state] = abstract
-    cleaned_file.close()
-    
-    # Creating parallel arrays of [state, concatenated abstracts]
-    state_order = []
-    abstracts = []
-    documents = open("./data/documents.csv", "w")
-    for state, abstract in d_concat_by_state.items():
-        documents.write(f"{state},{abstract}\n")
-        state_order.append(state)
-        abstracts.append(abstract)
-    documents.close()
-    return state_order, abstracts
-
 def get_predictions(input, vectorizer, naive_bayes, state_order):
     # loop through validation data file
     # make two parallel arrays: validation_abstracts[i] holds the abstract corresponding to state in ground_truth[i]
@@ -60,25 +24,35 @@ def get_predictions(input, vectorizer, naive_bayes, state_order):
 
 def main():
     # Load and process training data
-    cleaned_data = "./data/train_data.csv"
+    documents_file = "./data/train_documents.csv"
     # returns parallel arrays: abstract[i] is all the combined abstracts corresponding to state_order[i]
-    state_order, abstracts = concat(cleaned_data)
-    train_texts = abstracts
+    state_order = []
+    documents = []
+    with open(documents_file, "r") as file:
+        for line in file:
+            line = line.strip()
+            state_order.append(line[:2])
+            documents.append(line[3:])
+
+    train_texts = documents
     # Assign a unique index to each state, this is used as the predicted classes for the model
     # ex: (1: or, 2: ca, 3: wa, ....)
     train_labels = [i for i in range(len(state_order))]
-    
-    vectorizer = TfidfVectorizer()
+
+    vectorizer = TfidfVectorizer(max_df=0.95, min_df=2)
     # outputs tf-idf scores
     # vectorizer also stores training set idf to be applied later in predicting test-data
+    print("Getting tf-idf scores...")
     train_texts = vectorizer.fit_transform(train_texts)
 
     naive_bayes = MultinomialNB()
+    print("Fitting Naive Bayes...")
     naive_bayes.fit(train_texts, train_labels)
     
     # Load and process validation data
     validation_data = "./data/validation_data.csv"
     # loop through validation data, return predictions and ground truth values
+    print("Getting predictions...")
     predictions, ground_truth = get_predictions(validation_data, vectorizer, naive_bayes, state_order)
     
     # Compute prediction accuracy

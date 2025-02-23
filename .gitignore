@@ -1,2 +1,3 @@
-/data
-/myenv
+/simple_models/data
+/simple_models/myenv
+/complex_models/award_data.csv

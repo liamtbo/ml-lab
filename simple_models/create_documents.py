@@ -23,7 +23,7 @@ def concat(input, output):
             d_concat_by_state[state] += " " + abstract
         else:
             d_concat_by_state[state] = abstract
-        print(i)
+        if i % 100 == 0: print(i)
         i += 1
     cleaned_file.close()
     
@@ -36,6 +36,6 @@ def concat(input, output):
 def main():
     # Load and process training data
     cleaned_data = "./data/train_data.csv"
-    output_file = "./data/train_documents"
+    output_file = "./data/train_documents.csv"
     concat(cleaned_data, output_file)
 main()
